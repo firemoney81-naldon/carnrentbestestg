@@ -1,23 +1,398 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
-    <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
-    </nav>
-    <main>
-      <h1>Home page</h1>
-    </main>
-  </body>
-</html>
+
+   <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap');
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            color: #333333;
+            line-height: 1.7;
+            margin: 0;
+            padding: 0;
+            background: #F8F9FA; /* 부드러운 배경색 */
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 30px 20px;
+            background: #FFFFFF;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* 부드러운 그림자 */
+        }
+        h1, h2, h3 {
+            color: #2A5FCD; /* 명확한 파란색 */
+            font-weight: 700;
+        }
+        h1 {
+            font-size: 2.4em;
+            border-bottom: 4px solid #4A90E2; /* 부드러운 강조 라인 */
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+            line-height: 1.3;
+        }
+        h2 {
+            margin-top: 2.5em;
+            font-size: 1.8em;
+            padding-left: 10px;
+            border-left: 4px solid #4A90E2;
+        }
+        h3 {
+            margin-top: 1.8em;
+            font-size: 1.4em;
+            color: #4A90E2;
+        }
+        p, li {
+            margin-bottom: 1.2em;
+            font-size: 1.05em;
+        }
+        .highlight {
+            background: #E8F4FF; /* 강조 블록 배경색 */
+            padding: 20px;
+            border-left: 6px solid #2A5FCD;
+            margin: 25px 0;
+            border-radius: 5px;
+        }
+        .nav-links {
+            padding: 10px 0;
+            border-bottom: 1px dashed #D1D9E0;
+            margin-bottom: 20px;
+        }
+        .nav-links a {
+            color: #4A90E2;
+            text-decoration: none;
+            margin-right: 15px;
+            font-weight: 500;
+            font-size: 1.1em;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover {
+            color: #2A5FCD;
+        }
+        .cta-button {
+            display: block;
+            width: 100%;
+            text-align: center;
+            padding: 15px 0;
+            background: #FF6B6B; /* 눈에 띄는 버튼 색상 */
+            color: #fff;
+            text-decoration: none;
+            border-radius: 8px;
+            margin-top: 30px;
+            font-size: 1.2em;
+            font-weight: 700;
+            transition: background 0.3s;
+        }
+        .cta-button:hover {
+            background: #E55C5C;
+        }
+        table {
+            width: 100%;
+            margin: 25px 0;
+            border-collapse: collapse;
+            font-size: 1em;
+        }
+        th, td {
+            border: 1px solid #D1D9E0;
+            padding: 15px 10px;
+            text-align: left;
+        }
+        thead th {
+            background: #4A90E2;
+            color: #FFFFFF;
+            font-weight: 700;
+            text-align: center;
+        }
+        tbody tr:nth-child(even) {
+            background-color: #F7F7F7;
+        }
+        .form-group {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #E0E0E0;
+            border-radius: 5px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 700;
+            color: #333333;
+        }
+        .form-group input[type="text"], .form-group select, .form-group input[type="number"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            border: 1px solid #CCCCCC;
+            border-radius: 4px;
+            font-size: 1em;
+        }
+        .form-section-title {
+            font-size: 1.6em;
+            color: #2A5FCD;
+            margin-top: 30px;
+            border-bottom: 2px dashed #D1D9E0;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .external-link {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background: #F0F4F7;
+            border-left: 5px solid #4A90E2;
+            border-radius: 3px;
+        }
+        .external-link a {
+            color: #4A90E2;
+            text-decoration: none;
+            font-weight: 400;
+        }
+        .footer-note {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px dashed #D1D9E0;
+            font-size: 0.9em;
+            color: #666666;
+            text-align: center;
+        }
+        .image-container {
+            width: 100%;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- JSON-LD Structured Data for SEO -->
+        <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "Article",
+          "headline": "2026년 BMW 5시리즈 리스 가격 완벽 분석: 모델별 최저가 견적, 장단점 비교 및 비용 절약 팁",
+          "description": "BMW 5시리즈 리스 견적을 위한 완벽 가이드. 2026년 최신 모델(G60)과 구형(G30)의 가격, 장단점, 월 납입료를 비교하고, 법인 및 개인사업자 비용처리 방법과 최저가 프로모션을 찾는 팁을 제공합니다.",
+          "image": {
+            "@type": "ImageObject",
+            "url": "https://images.pexels.com/photos/1035108/pexels-photo-1035108.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+            "width": 1260,
+            "height": 750
+          },
+          "author": {
+            "@type": "Organization",
+            "name": "리스 전문 컨설턴트"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "자동차 금융 정보 센터"
+          },
+          "datePublished": "2026-03-15",
+          "articleBody": "..."
+        }
+        </script>
+
+        <h1>2026년 BMW 5시리즈 리스 가격 완벽 분석: 모델별 최저가 견적, 장단점 비교 및 비용 절약 팁</h1>
+
+        <div class="image-container">
+            <!-- Pexels.com에서 BMW 5 Series 관련 이미지 사용 -->
+            <img src="https://images.pexels.com/photos/1035108/pexels-photo-1035108.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="2026년형 BMW 5시리즈 전면부 이미지">
+        </div>
+
+        <p>BMW 5시리즈는 국내 수입차 시장에서 압도적인 존재감을 자랑하는 E세그먼트 세단의 대표주자입니다. 특히 2023년 말 출시된 신형 8세대 모델(G60)은 더욱 강력한 기술력과 디자인으로 큰 인기를 끌고 있습니다. 많은 분들이 BMW 5시리즈 구매 방법으로 <strong>장기 리스</strong>를 선택하는데, 이는 초기 비용 부담을 줄이고 세금 혜택을 누릴 수 있는 장점 때문입니다. <strong>BMW 5시리즈 리스 가격</strong>은 모델, 트림, 계약 조건, 그리고 딜러사 프로모션에 따라 천차만별입니다. 본 가이드는 2026년 최신 시장 동향을 반영하여 <strong>BMW 5시리즈 리스</strong>를 가장 <strong>저렴하게</strong> 이용할 수 있는 방법을 제시하고, <strong>월 납입료</strong>를 결정하는 핵심 요인들을 심층적으로 분석합니다. 특히 <strong>개인사업자</strong>와 <strong>법인사업자</strong>의 <strong>비용처리</strong> 혜택을 중점적으로 다루며, <strong>520i</strong>, <strong>530e</strong>, <strong>523d</strong> 등 인기 모델별 <strong>예상 견적</strong>을 비교하여 <strong>가장 합리적인</strong> 선택을 돕고자 합니다. <strong>BMW 5시리즈 장단점</strong> 비교를 통해 리스 상품의 본질을 파악하고, <strong>내돈내산 후기</strong>를 참고하여 <strong>추천</strong> 상품을 찾아보세요.</p>
+
+        <div class="nav-links">
+            <a href="#factor">리스 비용 결정 요인</a>
+            <a href="#model-comparison">모델별 견적 비교</a>
+            <a href="#advantage">장단점 및 렌트 비교</a>
+            <a href="#tip">절약 팁</a>
+            <a href="#quote">무료 견적 요청</a>
+        </div>
+
+        <h2 id="factor">BMW 5시리즈 리스 비용을 결정하는 핵심 요인 분석 (feat. 2026년 시장 동향)</h2>
+        <p>BMW 5시리즈 리스는 단순히 차량 가격을 월별로 나누는 개념이 아닙니다. <strong>리스료</strong>를 결정하는 요소는 차량가액, 잔존가치, 계약 기간, 초기 보증금, 그리고 금리 등 여러 변수가 복합적으로 작용합니다. 특히 2026년에는 금융 시장의 변동성이 <strong>리스 금액</strong>에 미치는 영향이 커지고 있습니다. <strong>BMW 5시리즈 리스 견적</strong>을 산출할 때는 다음과 같은 핵심 요소를 반드시 고려해야 합니다.</p>
+
+        <h3>1-1. 잔존가치(Residual Value)와 월 납입료의 상관관계</h3>
+        <p><strong>잔존가치</strong>란 계약 기간이 끝난 후 차량의 예상 중고차 가치를 의미합니다. <strong>리스</strong> 상품의 핵심은 차량 가격에서 잔존가치를 제외한 금액을 계약 기간 동안 나누어 납부하는 방식입니다. 따라서 <strong>잔존가치</strong>가 높게 책정될수록 <strong>월 납입료</strong>는 낮아집니다. BMW 5시리즈는 중고차 시장에서 인기가 높기 때문에 상대적으로 높은 잔존가치를 인정받는 편이지만, 딜러사별로, 그리고 계약 기간별로 잔존가치율이 다르게 적용될 수 있습니다. <strong>BMW 5시리즈 리스</strong> 견적 시 딜러사 프로모션으로 높은 잔존가치를 제시하는 곳을 <strong>비교</strong>하는 것이 <strong>저렴한 곳</strong>을 찾는 핵심입니다.</p>
+
+        <h3>1-2. 초기 비용 (보증금/선납금)의 종류와 차이점</h3>
+        <p>리스 계약 시 지불하는 초기 비용은 <strong>보증금</strong>과 <strong>선납금</strong>으로 나뉩니다. <strong>보증금</strong>은 계약 만료 시 전액 돌려받는 담보금이며, <strong>선납금</strong>은 미리 납부하는 리스료의 일부로 돌려받지 못합니다. 보증금을 높게 설정할수록 리스크가 줄어들어 <strong>리스 금리</strong>가 낮아지고, 결과적으로 <strong>월 리스료</strong>가 절감됩니다. <strong>무보증 리스</strong> 상품도 존재하지만, 일반적으로 월 납입금이 높게 책정되므로 <strong>BMW 5시리즈 리스</strong> 견적을 받을 때 초기 비용 지불 능력에 따라 <strong>장단점</strong>을 신중하게 비교해야 합니다.</p>
+
+        <h3>1-3. 계약 기간, 운행 거리, 보험 및 정비 조건</h3>
+        <p><strong>BMW 5시리즈 리스</strong> 계약 기간은 보통 36개월에서 60개월 사이로 선택합니다. 일반적으로 계약 기간이 길어질수록 월 납입료가 낮아지는 효과가 있지만, 총 납입 비용은 증가할 수 있습니다. 또한 연간 운행 거리를 설정해야 하는데, 설정한 거리 초과 시 계약 만료 후 추가 비용이 발생합니다. <strong>BMW 5시리즈</strong>의 경우 운행 거리가 비교적 짧은 <strong>개인 리스</strong> 고객이 많아 1만~1.5만 km 옵션을 주로 선택합니다. 보험 조건은 리스 이용자가 직접 가입하는 것이 일반적이며, 정비 옵션은 포함(full maintenance) 또는 미포함(standard) 중 선택할 수 있습니다. <strong>신차</strong>의 경우 보증 기간이 충분하여 미포함 옵션을 선택하여 <strong>월 납입료</strong>를 줄이는 것도 하나의 방법입니다.</p>
+
+        <h2 id="model-comparison">모델별 BMW 5시리즈 리스 예상 견적 및 최적화 전략 (2026년 G60/G30 기준)</h2>
+        <p>2026년 현재 BMW 5시리즈는 신형 G60 모델이 주력이며, 일부 G30 재고 모델도 판매되고 있습니다. <strong>BMW 5시리즈 가격</strong>은 트림(Luxury Line, M Sport Package)과 파워트레인(520i, 530e, 523d)에 따라 달라집니다. 다음 표는 2026년 주요 모델별 <strong>리스 견적</strong>을 비교한 예상 자료이며, <strong>정확한 금액</strong>은 딜러사와 금융사의 프로모션에 따라 달라질 수 있습니다.</p>
+
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>차량 모델 (2026년 기준)</th>
+                    <th>신차 가격대 (시작)</th>
+                    <th>36개월 리스 예상 견적 (월 납입료)</th>
+                    <th>48개월 리스 예상 견적 (월 납입료)</th>
+                    <th>핵심 특징 및 <strong>장단점</strong></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>BMW 520i (G60)</td>
+                    <td>7,000만 원대 초반</td>
+                    <td>월 90만원 ~ 110만원</td>
+                    <td>월 80만원 ~ 100만원</td>
+                    <td>가장 인기 있는 가솔린 모델. <strong>저렴한</strong> 초기 <strong>비용</strong>과 합리적인 유지비.</td>
+                </tr>
+                <tr>
+                    <td>BMW 530i (G60)</td>
+                    <td>8,000만 원대 중반</td>
+                    <td>월 110만원 ~ 130만원</td>
+                    <td>월 100만원 ~ 120만원</td>
+                    <td>고성능 가솔린 모델. <strong>5시리즈</strong>의 드라이빙 만족도를 극대화.</td>
+                </tr>
+                <tr>
+                    <td>BMW 523d (G60)</td>
+                    <td>7,000만 원대 중반</td>
+                    <td>월 95만원 ~ 115만원</td>
+                    <td>월 85만원 ~ 105만원</td>
+                    <td>디젤 모델. 높은 연비로 <strong>유지 비용</strong> 절약, 장거리 운행에 적합.</td>
+                </tr>
+                <tr>
+                    <td>BMW 530e (G60) (PHEV)</td>
+                    <td>9,000만 원대 초반</td>
+                    <td>월 120만원 ~ 140만원</td>
+                    <td>월 110만원 ~ 130만원</td>
+                    <td>플러그인 하이브리드. <strong>친환경차 혜택</strong> 및 세금 절감 효과.</td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="footer-note">※ 상기 <strong>예상 금액</strong>은 보증금 30%, 잔존가치 40% 설정 기준이며, 금융사별 <strong>금리</strong> 및 <strong>할인 혜택</strong>에 따라 실제 <strong>견적</strong>은 달라질 수 있습니다. 정확한 <strong>BMW 5시리즈 리스 견적</strong>은 딜러사 비교를 통해 확인해야 합니다.</p>
+
+        <h2 id="advantage">장기 리스 vs. 장기 렌트 vs. 할부: BMW 5시리즈 구매 방법 비교 분석</h2>
+        <p>BMW 5시리즈 구매를 고려할 때 <strong>리스</strong> 외에도 <strong>장기 렌트</strong>나 <strong>할부</strong>를 비교하는 것은 필수입니다. 각 방식은 <strong>장단점</strong>이 명확하므로, 본인의 운전 습관, 재정 상황, 그리고 세금 혜택 여부를 고려하여 선택해야 합니다. <strong>BMW 5시리즈 리스</strong>는 번호판이 일반 차량과 동일한 '하', '호'가 아니라는 점과 <strong>개인사업자</strong>의 세금 혜택이 장기 렌트보다 크다는 점이 핵심입니다.</p>
+
+        <h3>3-1. 리스(Lease)의 장점과 단점</h3>
+        <p><strong>장점:</strong> <strong>BMW 5시리즈</strong>와 같은 고가 수입차를 구매할 때 초기 <strong>비용</strong> 부담이 적습니다. <strong>법인</strong> 또는 <strong>개인사업자</strong>가 <strong>비용처리</strong>를 통해 연간 최대 1,500만 원(운행일지 작성 시)까지 세금 감면 혜택을 받을 수 있습니다. 차량 소유가 아닌 이용 개념이라 건강보험료나 재산세 상승 부담이 적습니다. <strong>번호판</strong>이 일반 번호판이어서 <strong>렌터카</strong>라는 인식이 없습니다.</p>
+        <p><strong>단점:</strong> <strong>장기 렌트</strong>와 달리 보험을 이용자 명의로 가입해야 하므로, 사고 시 보험료 할증이 발생합니다. 계약 기간 중 해지 시 위약금이 높습니다. 차량 구매 옵션 선택 시 잔존가치와 연계하여 중고차 시세 변동에 따른 손실 위험이 있습니다. <strong>무보증 리스</strong>의 경우 <strong>금리</strong>가 높아질 수 있습니다.</p>
+
+        <h3>3-2. 장기 렌트(Long-Term Rental)와의 차이점</h3>
+        <p>장기 렌트는 <strong>리스</strong>와 달리 '렌터카' 번호판(하, 허, 호)을 사용합니다. 보험료가 렌트료에 포함되어 있어 보험 경력이 단절되거나 할증이 발생하지 않습니다. 주행 거리가 매우 많거나, 보험료가 높은 <strong>사회초년생</strong>에게 유리할 수 있습니다. 반면 <strong>BMW 5시리즈</strong>의 품위를 중요시하는 운전자에게는 리스가 선호됩니다. <strong>BMW 5시리즈 리스</strong> 견적 시 <strong>장기 렌트</strong> 견적과 비교하여 <strong>가장 저렴한 곳</strong>을 찾아야 합니다.</p>
+
+        <h2 id="tip">BMW 5시리즈 리스 비용을 획기적으로 절감하는 7가지 비법</h2>
+        <p><strong>BMW 5시리즈 리스</strong>는 딜러사별, 금융사별 프로모션이 수시로 바뀌기 때문에 <strong>최저가</strong> 견적을 받기 위해서는 <strong>비교</strong>가 필수입니다. 2026년 기준으로 <strong>월 납입료</strong>를 줄이고 <strong>할인 혜택</strong>을 극대화할 수 있는 팁을 정리했습니다.</p>
+
+        <div class="highlight">
+            <ol>
+                <li><strong>딜러사별 프로모션 비교 (할인 혜택 극대화):</strong> <strong>BMW 5시리즈</strong>는 딜러사(한독, 코오롱, 도이치 등) 간 경쟁이 치열하여 매월 비공식 <strong>할인</strong>이 다르게 적용됩니다. 여러 딜러사 <strong>견적</strong>을 동시에 비교해야 합니다.</li>
+                <li><strong>잔존가치와 보증금의 전략적 설정:</strong> 초기 <strong>비용</strong> 부담이 없다면 보증금을 높게 설정하여 월 납입금을 줄이세요. 초기 <strong>비용</strong> 부담이 있다면 <strong>무보증 리스</strong> 상품의 <strong>금리</strong>를 <strong>비교</strong>해 보세요.</li>
+                <li><strong>장기 렌트/리스 비교 <strong>전문 업체</strong> 이용:</strong> 여러 금융사와 딜러사의 <strong>견적</strong>을 한 번에 비교해주는 <strong>리스 전문</strong> 컨설팅 <strong>업체</strong>를 이용하면 <strong>저렴한 곳</strong>을 쉽게 찾을 수 있습니다.</li>
+                <li><strong>운용 리스와 금융 리스 선택:</strong> <strong>BMW 5시리즈 리스</strong>는 보통 운용 리스를 선택하지만, 금융 리스도 있습니다. 운용 리스는 회계 처리가 간단하며 <strong>비용처리</strong>가 용이합니다.</li>
+                <li><strong>재고 할인 차량 및 비인기 트림 활용:</strong> <strong>BMW 5시리즈</strong>는 <strong>신차</strong> 출시 초기에 재고가 부족하지만, 일정 시간이 지나면 재고 할인이 적용될 수 있습니다. 비인기 색상이나 트림을 선택하면 <strong>할인 금액</strong>이 더 커질 수 있습니다.</li>
+                <li><strong>계약 기간 조정 및 연간 주행거리 설정:</strong> <strong>BMW 5시리즈</strong>를 <strong>장기 리스</strong>로 계약할 때, 주행 거리가 짧다면 이를 반영하여 <strong>월 납입료</strong>를 절감할 수 있습니다.</li>
+                <li><strong>사업자 등록 여부 활용:</strong> <strong>개인사업자</strong>나 <strong>법인사업자</strong>라면 <strong>비용처리</strong>를 통한 <strong>세금 절감</strong> 혜택이 <strong>BMW 5시리즈</strong> 리스의 가장 큰 <strong>장점</strong>이므로, 반드시 활용해야 합니다.</li>
+            </ol>
+        </div>
+
+        <h3>4-1. BMW 5시리즈 G60 (신형) vs. G30 (구형) 리스 차이점 분석</h3>
+        <p>2026년 리스 시장에서는 신형 G60 모델이 주력이며, 구형 G30 모델은 재고 소진 단계입니다. <strong>신형 BMW 5시리즈 리스</strong>는 초기 <strong>비용</strong>이 높지만, 잔존가치가 높게 책정되어 상대적으로 합리적인 <strong>월 납입료</strong>가 가능합니다. <strong>구형 G30</strong> 모델은 차량 가액 자체가 낮아 <strong>리스 금액</strong>도 낮지만, 잔존가치가 하락하여 <strong>월 납입료</strong> 절감 효과가 신형만큼 크지 않을 수 있습니다. <strong>BMW 5시리즈</strong>의 <strong>장단점</strong>을 고려할 때, 첨단 기술과 디자인을 선호한다면 G60을, <strong>저렴한 가격</strong>으로 BMW 5시리즈를 경험하고자 한다면 G30 잔여 물량을 노려볼 만합니다.</p>
+
+        <h2 id="trust">공인된 외부 사이트 및 참고 자료 (신뢰성 확보)</h2>
+        <p><strong>BMW 5시리즈 리스</strong> 및 자동차 금융에 대한 공신력 있는 정보를 얻기 위한 외부 기관의 자료입니다. 이러한 자료를 참고하여 자신에게 맞는 금융 설계를 하시기 바랍니다. <strong>금융감독원</strong>이나 <strong>여신금융협회</strong>의 자료는 리스 상품에 영향을 미치는 법규 및 제도 변경 사항을 확인하는 데 큰 도움이 됩니다.</p>
+        
+        <div class="external-link">
+            <label>1. 금융감독원 금융소비자 정보 포털 파인</label>
+            <a href="https://fine.fss.or.kr/" target="_blank">리스 상품 비교 및 소비자 보호 정보 (새 창 이동)</a>
+        </div>
+        <div class="external-link">
+            <label>2. 여신금융협회 여신금융상품 비교 공시</label>
+            <a href="https://www.crefia.or.kr/" target="_blank">리스 상품별 <strong>금리</strong> 및 조건 비교 정보 확인</a>
+        </div>
+        <div class="external-link">
+            <label>3. BMW 코리아 공식 홈페이지</label>
+            <a href="https://www.bmw.co.kr/" target="_blank">BMW 5시리즈 공식 사양 및 <strong>신차</strong> 가격 정보</a>
+        </div>
+        <div class="external-link">
+            <label>4. 나무위키 - 자동차 리스</label>
+            <a href="https://namu.wiki/w/%EC%9E%90%EB%8F%99%EC%B0%A8%EB%A6%AC%EC%8A%A4" target="_blank">자동차 리스의 기초 개념 및 시장 정보 (새 창 이동)</a>
+        </div>
+        <div class="external-link">
+            <label>5. 한국신용정보원 - 자동차 리스/렌탈 정보</label>
+            <a href="https://www.kcredit.or.kr/" target="_blank">신용 정보 기반의 금융 상품 이해</a>
+        </div>
+
+        <h2 id="quote">📞 1분 BMW 5시리즈 리스 무료 견적 요청 및 체류 시간 극대화</h2>
+        <p><strong>BMW 5시리즈 리스</strong>는 딜러사별 <strong>프로모션</strong>과 금융사 <strong>금리</strong>에 따라 월 납입금이 크게 달라집니다. 특히 <strong>신차 리스</strong>를 처음 경험하는 분들이 <strong>저렴한 곳</strong>을 찾지 못해 높은 <strong>금리</strong>로 계약하는 경우가 많습니다. 아래의 **BMW 5시리즈 리스 견적 계산기** 시뮬레이션에 필요한 정보를 입력하시면, 여러 금융사와 딜러사의 <strong>다이렉트 견적</strong>을 비교하여 가장 합리적인 <strong>월 납입료</strong>를 산출할 수 있습니다. 입력란에 상세한 정보를 입력할수록 정확한 <strong>예상 금액</strong>을 받아보실 수 있으며, 이 과정을 통해 사용자의 체류 시간을 극대화하고 <strong>저렴하게 가입하는 법</strong>을 찾는 의도를 만족시킬 수 있습니다. <strong>BMW 5시리즈</strong>의 <strong>장단점</strong>을 고려한 현명한 선택을 돕겠습니다.</p>
+
+        <div class="form-section-title">개인 정보 및 리스 조건 입력</div>
+
+        <form action="#" method="post">
+            <div class="form-group">
+                <label for="car-model-trim">1. 희망 BMW 5시리즈 모델 및 트림 선택 (예: 520i M Sport)</label>
+                <select id="car-model-trim" name="car_model_trim" required>
+                    <option value="">선택</option>
+                    <option value="520i_luxury">BMW 520i Luxury Line</option>
+                    <option value="520i_msport">BMW 520i M Sport Package</option>
+                    <option value="530i_luxury">BMW 530i Luxury Line</option>
+                    <option value="530i_msport">BMW 530i M Sport Package</option>
+                    <option value="523d_luxury">BMW 523d Luxury Line</option>
+                    <option value="530e_luxury">BMW 530e Luxury Line (PHEV)</option>
+                    <option value="old_g30">BMW 5시리즈 G30 잔여 모델</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="contract-term">2. 희망 리스 계약 기간 (최적 기간 선택)</label>
+                <select id="contract-term" name="contract_term" required>
+                    <option value="">선택</option>
+                    <option value="36">36개월 (3년)</option>
+                    <option value="48">48개월 (4년)</option>
+                    <option value="60">60개월 (5년)</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="initial-cost-type">3. 초기 비용 형태 선택</label>
+                <select id="initial-cost-type" name="initial_cost_type" required>
+                    <option value="">선택</option>
+                    <option value="deposit">보증금 납부 (월 납입료 절감)</option>
+                    <option value="prepayment">선납금 납부 (총 납입료 절감)</option>
+                    <option value="no_initial">초기 비용 없음 (무보증 리스)</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="deposit-amount">4. 희망 초기 보증금/선납금 비율 (%)</label>
+                <select id="deposit-amount" name="deposit_amount" required>
+                    <option value="">선택</option>
+                    <option value="0">0% (무보증)</option>
+                    <option value="10">10%</option>
+                    <option value="20">20%</option>
+                    <option value="30">30%</option>
+                    <option value="40">40% 이상</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="running-distance">5. 연간 예상 주행거리</label>
+                <select id="running-distance" name="running_distance" required>
+                    <option value="">선택</option>
+                    <option value="10k">1만 km 이하 (주말용)</option>
+                    <option value="15k">1만 5천 km 이하 (일상용)</option>
+                    <option value="20k">2만 km 이하 (장거리용)</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="business-type">6. 운전자 유형 (세금 혜택 관련)</label>
+                <input type="radio" id="type_business" name="business_type" value="business" required> <label for="type_business">개인/법인 사업자 (비용처리 희망)</label><br>
+                <input type="radio" id="type_individual" name="business_type" value="individual"> <label for="type_individual">개인 (직장인/주부 등)</label>
+            </div>
+
+            <div class="form-group">
+                <label for="contact-phone">7. 견적 결과 수신 휴대폰 번호</label>
+                <input type="text" id="contact-phone" name="contact_phone" placeholder="010-XXXX-XXXX" required>
+            </div>
+
+            <button type="submit" class="cta-button">무료 실시간 다이렉트 리스 견적 신청</button>
+        </form>
+
+    </div>
+  
